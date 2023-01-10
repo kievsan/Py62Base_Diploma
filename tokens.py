@@ -15,7 +15,7 @@ class Token:
         VK_VERSION = ''
         YA = ''
 
-    print(VK, VK_VERSION, YA)
+    # print(VK, VK_VERSION, YA)  # ----------------------------------
 
     if not (VK and YA):
         while not VK:
