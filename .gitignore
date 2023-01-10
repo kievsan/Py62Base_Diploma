@@ -1,0 +1,5 @@
+.idea/
+.about/
+__pycache__
+*.tmp
+*.json
