@@ -6,6 +6,7 @@ json
 requests
 datetime
 tqdm.tqdm
+configparser
 math
 pprint.pprint
 
