@@ -9,9 +9,9 @@
 > *    «Резервное копирование»
 > *    [Задание на сайте **Нетологии**](https://github.com/netology-code/py-diplom-basic)
 
+### Использование:
 
-PY62_Diploma> python foto_crawler.py -h                          
-usage: foto_crawler.py [-h] [-vk VK_USER_IDS_STRING] [-ya YANDEX_DIR] [-m MAX_COUNT_PHOTOS] [-a ALBUMS_STRING] [-ver]
+python foto_crawler.py [-h] [-vk VK_USER_IDS_STRING] [-ya YANDEX_DIR] [-m MAX_COUNT_PHOTOS] [-a ALBUMS_STRING] [-ver]
 
 > This is VK photo crawler sample Py program
 >
