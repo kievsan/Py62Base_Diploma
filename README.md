@@ -25,7 +25,7 @@ python foto_crawler.py [-h] [-vk VK_USER_IDS_STRING] [-ya YANDEX_DIR] [-m MAX_CO
 ###### The maximum needed count of photos from each album of the VK user:
 > - **-m _MAX_COUNT_PHOTOS_, --max _MAX_COUNT_PHOTOS_**
 ###### Album id collection of VK user:
-> - **-a _ALBUMS_STRING_, --albums _ALBUMS_STRING_**
+> - **-a _VK_ALBUM_IDS_STRING_, --albums _VK_ALBUM_IDS_STRING_**
 ###### show program's version number and exit
 > - -**ver, --version**
 
