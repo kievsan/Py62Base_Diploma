@@ -39,8 +39,6 @@ def get_user_ids(ids='', splitter=',') -> list:
 
 
 def get_args() -> argparse.Namespace:
-    yandex_dir = 'Test'
-
     parser = argparse.ArgumentParser(description='This is а VK photo grabber sample Py program', )
     parser.add_argument('-vk', '--vkIds', action='store',
                         dest='vk_user_ids_string',
@@ -48,7 +46,7 @@ def get_args() -> argparse.Namespace:
                         help='VK user id collection')
     parser.add_argument('-ya', '--yandex', action='store',
                         dest='yandex_dir',
-                        default=yandex_dir,
+                        default=token.YA_PATH,
                         help='Yandex disk path to store photos')
     parser.add_argument('-m', '--max', action='store', type=int,
                         dest='max_count_photos',
@@ -96,8 +94,9 @@ if __name__ == '__main__':
         print(f'\nЗагрузка на Я.диск {count} фото из альбомов VK пользователей завершена!\n')
 
 
-    args = get_args()
     token = Token()
+    args = get_args()
+
     vk_crawler = VkUserPhotoCrawler(token=token.VK)
     ya = YandexDisk(token=token.YA)
     ya.makedir(args.yandex_dir)
