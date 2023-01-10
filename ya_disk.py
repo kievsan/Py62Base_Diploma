@@ -1,18 +1,14 @@
 #
 
 
-from pprint import pprint
 import requests
+from pprint import pprint
 
 
 class YandexDisk:
 
     def __init__(self, token):
         self.token = token
-
-    def get_headers(self):
-        return {'Content-Type': 'application/json',
-                'Authorization': 'OAuth {}'.format(self.token)}
 
     def get_files_list(self):
         files_url = 'https://cloud-api.yandex.net/v1/disk/resources/files'
@@ -26,6 +22,10 @@ class YandexDisk:
         params = {'path': dir_path.strip()}
         response = requests.put(files_url, headers=headers, params=params)
         return response.json()
+
+    def get_headers(self):
+        return {'Content-Type': 'application/json',
+                'Authorization': 'OAuth {}'.format(self.token)}
 
     def _get_upload_link(self, ya_disk_file_path: str):
         upload_url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'

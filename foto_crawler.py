@@ -7,7 +7,6 @@ __version__ = '0.1.0'
 import argparse
 import datetime
 import json
-
 from tqdm import tqdm
 from pprint import pprint
 import math
@@ -69,15 +68,6 @@ def get_args() -> argparse.Namespace:
     return args_
 
 
-def get_tokens() -> Token:
-    tokens_ = Token()
-    while not tokens_.VK:
-        tokens_.VK = input('\nОтсутствует токен api VKontakte! Введите сервис-токен VK: ')
-    while not tokens_.YA:
-        tokens_.YA = input('\nОтсутствует токен api Yandex! Введите свой токен Yandex: ')
-    return tokens_
-
-
 def read_json_file(file, dict_: dict = None):
     try:
         with open(file, 'r', encoding='utf-8') as file:
@@ -107,9 +97,9 @@ if __name__ == '__main__':
 
 
     args = get_args()
-    tokens = get_tokens()
-    vk_crawler = VkUserPhotoCrawler(token=tokens.VK)
-    ya = YandexDisk(token=tokens.YA)
+    token = Token()
+    vk_crawler = VkUserPhotoCrawler(token=token.VK)
+    ya = YandexDisk(token=token.YA)
     ya.makedir(args.yandex_dir)
 
     # vk_photos_filename = vk_crawler.start(vk_ids=get_user_ids(), max_count_photos=3, albums_string='profile')
