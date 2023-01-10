@@ -163,7 +163,7 @@ class VkUserPhotoCrawler:
 
             def shortened_url(url: str) -> str:
                 path = url.split('/')
-                shortened_path = path[:int(len(path) / divider)]
+                shortened_path = path[:-1] if len(path) < 5 else path[:int(len(path) / divider)]
                 shortened_path = '/'.join(shortened_path) + f'/{".../" if divider > 1 else ""}'
                 if name_splitter not in ['?', '&']:
                     shortened_filename = path[-1]

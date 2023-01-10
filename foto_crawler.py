@@ -103,7 +103,7 @@ if __name__ == '__main__':
 
 
     def print_finally_msg(count: int):
-        print(f'\nЗагрузка на Я.диск {count} фото из альбомов VK пользователей завершена!')
+        print(f'\nЗагрузка на Я.диск {count} фото из альбомов VK пользователей завершена!\n')
 
 
     args = get_args()
