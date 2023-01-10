@@ -16,8 +16,9 @@ def get_title_user(user: dict):
 
 
 class VkUserPhotoCrawler:
-    def __init__(self, token: str):
+    def __init__(self, token: str, api_ver: str = '5.131'):
         self._VK_TOKEN = token
+        self._API_VK_VER = api_ver
         self.max_count_photos = 0
         print(f"Создан объект фото-граббера!")
 
@@ -28,7 +29,7 @@ class VkUserPhotoCrawler:
                   'fields': fields,
                   'name_case': name_case,
                   'access_token': self._VK_TOKEN,
-                  'v': '5.131'}
+                  'v': self._API_VK_VER}
         res = requests.get(url, params=params).json()
         # pprint(res)  # ----------------------------------
         response = res.get('response', {})
@@ -52,7 +53,7 @@ class VkUserPhotoCrawler:
         url = 'https://api.vk.com/method/photos.getAlbums'
         params = {'owner_id': vk_user_id,
                   'access_token': self._VK_TOKEN,
-                  'v': '5.131'}
+                  'v': self._API_VK_VER}
         albums = []
         while True:
             params['offset'] = len(albums)
@@ -85,7 +86,7 @@ class VkUserPhotoCrawler:
                   'extended': 1,
                   'offset': offset,
                   'access_token': self._VK_TOKEN,
-                  'v': '5.131'}
+                  'v': self._API_VK_VER}
         res = requests.get(url, params=params).json()
         # pprint(res)  # ----------------------------------
         response = res.get('response', {})
