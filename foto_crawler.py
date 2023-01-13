@@ -127,7 +127,7 @@ if __name__ == '__main__':
                 photo_name: str = vk_photo['url'].split('/')[-1].split('?')[0]
                 ya_path = f"{user_dir}/{user_name}_{album_name}_{start_time}_likes{vk_photo['likes']}_{photo_name}"
                 # print(ya_path)  # ----------------------------------------
-                ya.upload_file_to_disk(upload_path=ya_path, saved_file_name=vk_photo['url'])
+                ya.upload2_file_to_disk(ya_path=ya_path, vk_url=vk_photo['url'])
                 photo_counter += 1
 
     print_finally_msg(photo_counter)

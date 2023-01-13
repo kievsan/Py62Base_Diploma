@@ -52,7 +52,8 @@ class YandexDisk:
             response = requests.put(href, data=foto)
             response.raise_for_status()
 
-    def upload2_file_to_disk(self, upload_path: str, saved_file_name: str):  # не работает!
-        response_link = self._get_upload_link(ya_disk_file_path=upload_path)
-        href = response_link.get('href', '')
-        response = requests.put(href, data=saved_file_name)  # Сохраняется на Я.Диск одно имя, файл с нулевым размером?!
+    def upload2_file_to_disk(self, ya_path: str, vk_url: str):
+        upload_url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
+        headers = self.get_headers()
+        params = {'path': ya_path, 'url': vk_url}
+        response = requests.post(upload_url, headers=headers, params=params)
