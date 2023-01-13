@@ -16,8 +16,6 @@ class Token:
         VK = ''
         YA = ''
 
-    # print(VK, VK_VERSION, YA)  # ----------------------------------
-
     if not (VK and YA):
         config['DEFAULT'] = {
             'vk_token': '',

@@ -60,7 +60,7 @@ def get_args() -> argparse.Namespace:
                         version='%(prog)s 0.1.0' + __version__)
 
     args_ = parser.parse_args()
-    args_.yandex_dir = args_.yandex_dir if args_.yandex_dir.isalnum() else yandex_dir
+    args_.yandex_dir = args_.yandex_dir if args_.yandex_dir.isalnum() else token.YA_PATH
     args_.max_count_photos = abs(args_.max_count_photos)
     # print(f'{type(args_)}:\t{args}')  # -----------------------------------------
     return args_
